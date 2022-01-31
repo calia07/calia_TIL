@@ -8,11 +8,11 @@
 * 변수
 * 연산자
 
-### 조건문
+### [조건문](https://github.com/calia07/calia_TIL/blob/main/2022/Javascript/%EA%B8%B0%EB%B3%B8.md)
 * if 조건문
 * switch 조건문
 
-### 반복문
+### [반복문](https://github.com/calia07/calia_TIL/blob/main/2022/Javascript/%EA%B8%B0%EB%B3%B8.md)
 * for 반복문
 * while 반복문
 
