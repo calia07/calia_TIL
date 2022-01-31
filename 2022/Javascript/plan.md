@@ -1,7 +1,7 @@
 # Javascript Plan
 
 ## 목차
-### 기본
+### [기본](https://github.com/calia07/calia_TIL/blob/main/2022/Javascript/%EA%B8%B0%EB%B3%B8.md)
 * 기본 용어
 * 출력
 * 자료형
