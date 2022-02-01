@@ -16,7 +16,7 @@
 * for 반복문
 * while 반복문
 
-### 함수
+### [함수](https://github.com/calia07/calia_TIL/blob/main/2022/Javascript/%ED%95%A8%EC%88%98.md)
 * 생성 방법
 * 활용 방법
 * 표준 내장 함수
