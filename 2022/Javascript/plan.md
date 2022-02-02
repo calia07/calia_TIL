@@ -21,7 +21,7 @@
 * 활용 방법
 * 표준 내장 함수
 
-### 객체
+### [객체](https://github.com/calia07/calia_TIL/blob/main/2022/Javascript/%EA%B0%9D%EC%B2%B4.md)
 * 객체란?
 * 속성과 메소드
 * 생성자 함수
