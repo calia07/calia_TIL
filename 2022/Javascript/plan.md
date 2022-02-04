@@ -26,6 +26,6 @@
 * 속성과 메소드
 * 생성자 함수
 
-### 예외 처리
+### [예외 처리](https://github.com/calia07/calia_TIL/blob/main/2022/Javascript/%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC.md)
 * 기본 예외 처리
 * 고급 예외 처리
