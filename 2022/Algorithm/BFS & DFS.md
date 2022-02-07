@@ -147,5 +147,77 @@ cout << factorial(5);
 ## 2. DFS & BFS란?
 - ### DFS (깊이 우선 탐색) : 그래프에서 깊은 부분을 우선적으로 탐색하는 알고리즘
 
+![010](https://user-images.githubusercontent.com/71044190/152720722-0f827b5e-1979-4096-ac30-f2699ae6d014.png)
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+bool visited[9];
+vector <int> graph[9];
+
+void dfs(int x){
+	visited[x] = true;
+	cout << x <<' ';
+	for(int i =0;i<graph[x].size();i++){
+		int y = graph[x][i];
+		if(!visited[y]) dfs(y);
+	}
+}
+
+int main(){
+	graph[1].push_back(2);
+	graph[1].push_back(3);
+	graph[1].push_back(4);
+	
+	dfs(1);
+}
+```
 
 - ### BFS (너비 우선 탐색) : 가까운 노드부터 탐색하는 알고리즘
+
+
+![011](https://user-images.githubusercontent.com/71044190/152720732-8d32347e-ac48-4fd0-b92f-c3bb3cc595c5.png)
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+bool visited[9];
+vector <int> graph[9];
+
+void bfs(int start){
+	queue<int> q;
+	q.push(start);
+	visited[start] = true;
+	while(!q.empty()){
+		int x = q.front();
+		q.pop();
+		cout << x<<' ';
+		for(int i =0;i<graph[x].size();i++){
+			int y = graph[x][i];
+			if(!visited[y]){
+				q.push(y);
+				visited[y] = true;
+			}
+		}
+	}
+
+int main(){
+
+graph[1].push_back(2);
+graph[1].push_back(3);
+graph[1].push_back(4);
+
+bfs(1);
+
+}
+
+```
+
+출처 : 이것이 취업을 위한 코딩 테스트다(with python) - 나동빈
