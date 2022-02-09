@@ -91,6 +91,7 @@ console.log(os.type());
 console.log(os.platform());
 ...
 ```
+<br>
 
 ## 5. url 모듈
 
@@ -111,6 +112,136 @@ console.log(parsedObject);
 
 ## 6. File System 모듈
 
+- ### 1) 파일 읽기
+|파일 읽기 메소드|설명|
+|:---:|:---:|
+|fs.readFileSync(<파일 이름>)|동기적으로 파일을 읽어들임|
+|fs.readFile(<파일 이름>,<콜백 함수>)|비동기적으로 파일을 읽어들임|
 
+- 동기적으로 파일 읽어 들이기 : 파일을 읽어들일 때까지 코드가 정지 => thread 사용
+```javascript
+const fs = require('fs');/1번 실행
 
+const file = fs.readFileSync('textfile.txt');//2번 실행, 동기적
+console.log(file);//3번 실행
+console.log(file.toString());//4번 실행
+//5번 종료
+```
 
+- 비동기적으로 파일 읽어 들이기 : 시간 단축, 이벤트만 등록하고 곧바로 코드 진행 => 개발 속도 및 유지 보수성이 좋음
+```javascript
+const fs = require('fs');//1번 실행
+
+const file = fs.readFile('textfile.txt',(error,file) => {//2번 실행
+  console.log(file); //4번 실행
+  console.log(file.toString());//5번 실행
+  //6번 종료
+});
+//3번 종료
+```
+```javascript
+const fs = require('fs');
+const async = require('async');
+
+async.parallel([
+  (callback) => {fs.readFile('a.txt',callback); },
+  (callback) => {fs.readFIle('b.txt',callback); },
+  (callback) => {fs.readFile('c.txt',callback); },
+], (error,results) => {
+  console.log(results);
+});
+//병렬적으로 파일을 읽어 들이기때문에 시간 단축
+```
+
+- ### 2) 파일 쓰기
+|파일 쓰기 메소드|설명|
+:---:|:---:
+|fs.writeFileSync(<파일 이름>,<문자열>)|동기적으로 파일을 작성|
+|fs.writeFile(<파일 이름>,<문자열>,<콜백 함수>)|비동기적으로 파일을 작성|
+
+- 동기적으로 파일 쓰기
+```javascript
+const fs = require('fs');
+
+fs.writeFileSync('output.txt','안녕!!');
+console.log('파일 쓰기 완료');
+
+```
+
+- 비동기적으로 파일 쓰기
+```javascript
+const fs = require('fs');
+
+fs.writeFile('output.txt','안녕!!',(error) => {
+  console.log('파일 쓰기 완료');
+});
+```
+- ### 3) 파일 처리와 예외 처리
+동기적 코드를 예외처리할 떄에는 try catch 구문 활용<br>
+비동기적 코드를 예외처리할 때에는 콜백 함수로 전달된 첫 번째 매개 변수 error 활용
+
+- 동기 코드 예외 처리
+```javascript
+const fs = require('fs');
+
+try{
+  const file = fs.readFileSync('none.txt');
+  console.log(file);
+  console.log(file.toString());
+}catch(exception){
+  console.log('문제 발생');
+  console.log(exception);
+}
+```
+
+- 비동기 코드 예외 처리
+```javascript
+const fs = require('fs');
+
+fs.readFile('none.txt',(error,file) => {
+  if(error){
+    console.log('문제 발생');
+    console.log(error);
+  }
+  else{
+    console.log(file);
+    console.log(file.toString());
+  }
+
+});
+```
+<br>
+
+## 7. 노드 패키지 매니저
+#### 외부 모듈 : 개인 개발자가 내부 모듈을 조합해 사용하기 쉬운 형태로 만들거나 새로운 기능을 구현해서 제공하는 것
+#### 내부 모듈 : 프로그래밍 플랫폼이 기본적으로 제공하는 모듈
+```nodejs
+npm install <모듈 이름>@<버전>
+```
+<br>
+
+## 8. request 모듈
+#### 웹 요청을 쉽게 만들어 주는 모듈(외부 모듈)
+```javascript
+const request = require('request');
+
+const url = 'http://www.abcd.co.kr/store_list.html';
+request(urll,(error, response, body) =>{
+  console.log(body);
+});
+
+```
+<br>
+
+## 9. cheerio 모듈
+#### 웹 페이지의 특정 위치에서 손쉽게 데이터를 추출할 수 있는 모듈(외부 모듈)
+<br>다양한 정보를 손쉽게 가져올 수 있다는 장점이 있음
+
+<br>
+
+## 10. async 모듈
+#### 실행 순서를 정의하기 어렵고, 둘어쓰기가 많은 데 이 문제를 해결해 줄 수 있는 모듈
+
+<hr>
+
+#### [출처 : 자바스크립트 프로그래밍 입문(한빛 아카데미) - 윤인성 지음]
