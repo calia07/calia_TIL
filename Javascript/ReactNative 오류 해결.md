@@ -28,5 +28,3 @@ choco install -y openjdk11
 
 => SDK버전 맞춰서 새로운 emulator 만들어서 연결
 
-​
-
