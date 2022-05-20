@@ -12,6 +12,7 @@ inline void error( char* str ) {
 	exit(1);
 };
 
+
 class ArrayStack
 {
 	int		data[MAX_STACK_SIZE];	// 요소의 배열
