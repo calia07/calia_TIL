@@ -56,6 +56,7 @@ int main() {
 
 /*
 
+
 그래서 pair의 first 값을 기준으로 정렬 시키고 min값을 v[0]의 second값으로 초기화시킨 다음에
 
 차례대로 second값과 min을 비교하면서 만약 min 값보다 더 높은 등수를 받았으면 answer에 1을 더해주고 
