@@ -7,6 +7,8 @@
 - HTML5의 표준안으로 웹 소케보다 가벼움.
 - 양방향이 아니므로 ajax로 쉽게 이용 가능
 
+<br>
+
 ### 2. SSE 사용
 - SSE는 첫 연결시에 데이터를 주고받은 뒤 연결된 상태를 유지하고 서버가 일방적으로 데이터 전송
 - 사용할 수 있는 Server-Sent Event API가 EventSource 인터페이스에 존재
@@ -31,6 +33,7 @@ evtSource.onerror = function(e) {
 /** 이벤트 스트림 닫기 */
 evtSource.close();
 ```
+<br>
 
 ### 3. 서버의 Event를 클라이너트로 보내는 다른 방법 비교
 #### 1) Polling : 클라이언트가 HTTP request를 서버로 계속 날려서 이벤트 내용을 전달받는 방식
@@ -40,3 +43,9 @@ evtSource.close();
 
 #### 2) websocket : 웹소켓 포트에 접속한 모든 클라이언트에게 이벤트 방식으로 응답하며 양방향 통신이 가능
 - websocket 프로토콜 처리를 위한 전이중 연결과 새로운 웹소켓 서버가 필요
+- 서버와 클라이언트 간의 Socket 연결 필요
+
+### 참고
+<hr>
+https://inpa.tistory.com/m/entry/WEB-%F0%9F%93%9A-Polling-Long-Polling-Server-Sent-Event-WebSocket-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC <br>
+https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
