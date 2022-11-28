@@ -1,6 +1,4 @@
 
-1번째 방법
-```c++
 
 #include <string>
 #include <vector>
@@ -10,6 +8,7 @@
 using namespace std;
 int arr[10000001]={0};
 
+//1번 방법
 bool compare(int a, int b){
     return a>b;
 }
@@ -29,14 +28,9 @@ int solution(int k,vector<int> tangerine){
     }
     return answer;
 }
-```
-2번째 방법
-```c++
 
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <iostream>
+//2번째 방법
+
 
 bool compare(pair<int,int> v1, pair<int,int>v2){
     return v1.second>v2.second;
@@ -60,4 +54,3 @@ int solution(int k, vector<int> tangerine) {
     }
     return answer;
 }
-```
